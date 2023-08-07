@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 
-class SliderWidget extends StatefulWidget {
+class SliderCard extends StatefulWidget {
+  const SliderCard({Key? key}) : super(key: key);
+
   @override
-  _SliderWidgetState createState() => _SliderWidgetState();
+  _SliderCardState createState() => _SliderCardState();
 }
 
-class _SliderWidgetState extends State<SliderWidget> {
+class _SliderCardState extends State<SliderCard> {
+  late final PageController pageController;
+
+  @override
+  void initState() {
+    pageController = PageController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
   List<String> items = [
     'hello',
     'world',
@@ -15,36 +31,29 @@ class _SliderWidgetState extends State<SliderWidget> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double cardWidth = screenWidth * 0.95;
+    double containerHeight = screenWidth * 0.2;
 
-    return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 16),
-              SizedBox(
-                height: 100,
-                width: cardWidth,
-                child: PageView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      color: Colors.blue, // Example background color
-                      child: Center(
-                        child: Text(
-                          items[index],
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    );
-                  },
+    return Column(
+      children: [
+        Expanded(
+          child: PageView.builder(
+            controller: pageController,
+            itemBuilder: (_, index) {
+              return AnimatedBuilder(
+                animation: pageController,
+                builder: (ctx, child) {
+                  return child!;
+                },
+                child: Container(
+                  height: containerHeight,
+                  color: Colors.amberAccent,
                 ),
-              ),
-            ],
+              );
+            },
+            itemCount: items.length,
           ),
         ),
-      ),
+      ],
     );
   }
 }
