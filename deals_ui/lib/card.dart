@@ -8,8 +8,6 @@ class DynamicCard extends StatelessWidget {
       builder: (context, constraints) {
         double cardWidth = constraints.maxWidth * 0.10;
         double cardHeight = constraints.maxWidth * 0.01;
-        double padding = cardWidth * 0.06;
-        double margin = cardWidth * 0.18;
         double fontSize = cardWidth * 0.60;
         double iconSize = cardWidth * 0.9;
         // double imagePadding = cardWidth * 0.01;
@@ -20,13 +18,13 @@ class DynamicCard extends StatelessWidget {
             context: context,
             child: Card(
               elevation: 3,
-              margin: EdgeInsets.all(margin),
+              margin: EdgeInsets.all(16),
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: Colors.greenAccent, width: 1.0),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: EdgeInsets.all(padding),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,

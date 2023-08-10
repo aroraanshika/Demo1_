@@ -19,49 +19,60 @@ class _DealsState extends State<Deals> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double fontSize = screenWidth * 0.06;
-    double padding = screenWidth * 0.02;
 
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            elevation: 1,
-            title: Text(
-              'Best Deals',
-              style: TextStyle(
-                fontSize: fontSize,
-                color: Colors.black,
-                // fontWeight: FontWeight.bold,
-              ),
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              iconSize: 30,
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back_outlined, color: Colors.black),
-            ),
-            backgroundColor: Colors.white,
-            bottom: PreferredSize(
-              child: Container(
-                color: Color.fromARGB(255, 163, 231, 198),
-                height: 1.0,
-              ),
-              preferredSize: Size.fromHeight(2.0),
+        appBar: AppBar(
+          elevation: 1,
+          title: Text(
+            'Best Deals',
+            style: TextStyle(
+              fontSize: fontSize,
+              color: Colors.black,
+              // fontWeight: FontWeight.bold,
             ),
           ),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(padding),
-              child: Column(
-                children: <Widget>[
-                  // SliderCard(),
-                  DynamicCard(),
-                  DynamicCard(),
-                  DynamicCard(),
-                  DynamicCard(),
-                ],
-              ),
+          centerTitle: true,
+          leading: IconButton(
+            iconSize: 30,
+            onPressed: () {},
+            icon: Icon(Icons.arrow_back_outlined, color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          bottom: PreferredSize(
+            child: Container(
+              color: Color.fromARGB(255, 163, 231, 198),
+              height: 1.0,
             ),
-          )),
+            preferredSize: Size.fromHeight(2.0),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              children: <Widget>[
+                //   // SizedBox(
+                //   //     height: 42,
+                //   //     width: 40,
+                //   //     child: ListView(children: [MyCarouselSlider()])),
+                //   // DynamicCard(),
+                //   // DynamicCard(),
+                //   // DynamicCard(),
+                //   // DynamicCard(),
+                // MyCarouselSlider(),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return DynamicCard();
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
