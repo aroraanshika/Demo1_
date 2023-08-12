@@ -24,12 +24,15 @@ class _DealsState extends State<Deals> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: Text(
-            'Best Deals',
-            style: TextStyle(
-              fontSize: fontSize,
-              color: Colors.black,
-              // fontWeight: FontWeight.bold,
+          title: Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(
+              'Best Deals',
+              style: TextStyle(
+                fontSize: fontSize,
+                color: Colors.black,
+                // fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           centerTitle: true,
@@ -60,7 +63,7 @@ class _DealsState extends State<Deals> {
                 //   // DynamicCard(),
                 //   // DynamicCard(),
                 //   // DynamicCard(),
-                // MyCarouselSlider(),
+                MyCarouselSlider(),
                 ListView.builder(
                   shrinkWrap: true,
                   itemCount: 4,

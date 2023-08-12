@@ -7,7 +7,7 @@ class DynamicCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         double cardWidth = constraints.maxWidth * 0.10;
-        double cardHeight = constraints.maxWidth * 0.01;
+
         double fontSize = cardWidth * 0.60;
         double iconSize = cardWidth * 0.9;
         // double imagePadding = cardWidth * 0.01;
@@ -18,13 +18,13 @@ class DynamicCard extends StatelessWidget {
             context: context,
             child: Card(
               elevation: 3,
-              margin: EdgeInsets.all(16),
+              margin: EdgeInsets.all(10),
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: Colors.greenAccent, width: 1.0),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(8),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -32,7 +32,7 @@ class DynamicCard extends StatelessWidget {
                     Container(
                       child: Image.asset(
                         'assets/images/blinkit.png',
-                        width: cardWidth * 2.4,
+                        width: cardWidth * 2.5,
                         // height: cardHeight * 0.8,
                         fit: BoxFit.cover,
                         // height: cardHeight * 0.3,
